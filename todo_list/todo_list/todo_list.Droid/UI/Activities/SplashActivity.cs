@@ -5,6 +5,7 @@ namespace todo_list.Droid.UI.Activities
     using System.Linq;
     using System.Text;
     using System.Threading;
+    using System.Threading.Tasks;
 
     using Android.App;
     using Android.Content;
@@ -16,7 +17,7 @@ namespace todo_list.Droid.UI.Activities
     using Android.Widget;
 
     [Activity(
-        Label = "YourAppNameHere",
+        Label = "Todo List App",
         MainLauncher = true,
         ScreenOrientation = ScreenOrientation.Portrait,
         ConfigurationChanges =
@@ -57,6 +58,26 @@ namespace todo_list.Droid.UI.Activities
             SetContentView(Resource.Layout.ActivitySplash);
 
             #endregion
+
+            // c#: delegati
+            // pattern: async await
+
+            // thread asincrono: quindi non posso fare operazioni visuali
+            Task.Factory.StartNew(() =>
+                {
+                    System.Threading.Thread.Sleep(2000);
+
+                }).ContinueWith((t) =>
+                {
+                    // specifico un job da fare sincronizzato con thread principale
+                    RunOnUiThread(() =>
+                    {
+                        StartActivity(typeof(MainActivity));
+                        Finish(); // termina l'activity corrente in cui sei
+                    });
+                });
+
+
         }
 
         protected override void OnDestroy()

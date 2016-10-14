@@ -23,6 +23,10 @@ namespace todo_list.Droid.UI.Fragments
         #endregion
 
         #region Widgets
+
+        private Button LoginButton;
+        private Button RegisterButton;
+
         #endregion
 
         #region Constructors
@@ -48,12 +52,18 @@ namespace todo_list.Droid.UI.Fragments
         {
             #region Desinger Stuff
 
+            // prende xml e crea gerarchia dei controlli:
             View view = inflater.Inflate(Resource.Layout.FragmentLogin, container, false);
 
             #endregion           
 
+            this.LoginButton = view.FindViewById<Button>(Resource.Id.LoginButton);
+
+            this.LoginButton.Click += LoginButton_Click;
+
             return view;
         }
+
 
         public override void OnDestroyView()
         {
@@ -69,6 +79,21 @@ namespace todo_list.Droid.UI.Fragments
         #endregion
 
         #region Event Handlers
+
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            // autenticazione con servizio rest e se ho risposta positiva navigare sulla task list
+
+            // qui vedi FragmentManager con nome corto ma preso dalla libreria support!
+            this.FragmentManager.BeginTransaction()
+                .AddToBackStack("before_TaskListFragment") // identificatore nel back stack
+                .Replace(Resource.Id.ContentLayout, new TaskListFragment(), "TaskListFragment")
+                .Commit();
+            
+        }
+
+
+
         #endregion
     }
 }
