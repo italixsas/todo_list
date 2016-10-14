@@ -3,5 +3,11 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <admaiora.appkit.ui.ItemRecyclerView
+        android:id="@+id/TaskList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:choiceMode="singleChoice"
+        android:divider="#00000000"
+        android:dividerHeight="0dp" />
 </LinearLayout>
