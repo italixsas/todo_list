@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:layout_width="match_parent"
+    p1:layout_height="match_parent"
+    p1:id="@+id/RegistrationMainLayout">
+    <EditText
+        p1:layout_width="300dp"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/UserText"
+        p1:layout_centerHorizontal="true"
+        p1:layout_marginTop="20dp" />
+    <EditText
+        p1:inputType="textPassword"
+        p1:layout_width="300dp"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/PasswordText"
+        p1:layout_below="@+id/UserText"
+        p1:layout_centerHorizontal="true" />
+    <Button
+        p1:text="Register &gt;"
+        p1:layout_width="wrap_content"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/RegisterButton"
+        p1:layout_below="@+id/PasswordText"
+        p1:layout_centerHorizontal="true" />
+</RelativeLayout>

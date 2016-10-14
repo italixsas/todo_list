@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>todo_list.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>todo_listiOS</AssemblyName>
+    <AssemblyName>todo_list.iOS</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>

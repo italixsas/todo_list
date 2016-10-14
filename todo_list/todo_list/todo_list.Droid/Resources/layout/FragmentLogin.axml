@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:layout_width="match_parent"
+    p1:layout_height="match_parent"
+    p1:id="@+id/LoginMainLayout">
+    <RelativeLayout
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:layout_width="match_parent"
+        p1:layout_height="match_parent"
+        p1:id="@+id/LoginInnerLayout">
+        <EditText
+            p1:layout_width="300dp"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/UserText"
+            p1:hint="User"
+            p1:layout_centerHorizontal="true"
+            p1:layout_marginTop="20dp" />
+        <EditText
+            p1:inputType="textPassword"
+            p1:layout_width="300dp"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/PasswordText"
+            p1:layout_below="@+id/UserText"
+            p1:layout_centerHorizontal="true"
+            p1:hint="Password" />
+        <Button
+            p1:text="LOGIN &gt;"
+            p1:layout_width="wrap_content"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/LoginButton"
+            p1:layout_below="@+id/PasswordText"
+            p1:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <Button
+        p1:text="Register &gt;"
+        p1:layout_width="wrap_content"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/RegisterButton"
+        p1:layout_centerHorizontal="true"
+        p1:layout_alignParentBottom="true"
+        p1:layout_marginBottom="20dp" />
+</RelativeLayout>
