@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:p1="http://schemas.android.com/apk/res/android"
     p1:layout_width="match_parent"
     p1:layout_height="match_parent"
-    p1:id="@+id/SplashBaseLayout">
+    p1:id="@+id/SplashMainLayout">
     <RelativeLayout
         p1:minWidth="25px"
         p1:minHeight="25px"
@@ -22,12 +22,12 @@
             p1:textAppearance="?android:attr/textAppearanceLarge"
             p1:layout_width="wrap_content"
             p1:layout_height="wrap_content"
-            p1:id="@+id/SplashText"
+            p1:id="@+id/SplashLabel"
             p1:layout_below="@+id/SplashImage"
             p1:layout_centerHorizontal="true" />
     </RelativeLayout>
     <TextView
-        p1:text="Versione 1.0.0"
+        p1:text="Version 1.0.0"
         p1:textAppearance="?android:attr/textAppearanceMedium"
         p1:layout_width="wrap_content"
         p1:layout_height="wrap_content"

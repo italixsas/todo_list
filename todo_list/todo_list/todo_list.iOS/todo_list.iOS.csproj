@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>2aa8b107-b10b-4fd9-86fe-32e5c4701a4d</ProjectGuid>
+    <ProjectGuid>{2AA8B107-B10B-4FD9-86FE-32E5C4701A4D}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>todo_list.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
@@ -139,6 +139,11 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="UI\MainControllers\%40ViewController.cs" />
+    <Compile Include="UI\Sources\UIItemListViewSource.cs" />
+    <Compile Include="UI\SubControllers\%40SubController.cs" />
+    <Compile Include="UI\Widgets\UIItemListView.cs" />
+    <Compile Include="UI\Widgets\UIToast.cs" />
     <Compile Include="ViewController.cs" />
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>

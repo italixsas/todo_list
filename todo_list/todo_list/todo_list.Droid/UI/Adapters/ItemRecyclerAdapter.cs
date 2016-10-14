@@ -181,9 +181,11 @@ namespace AdMaiora.AppKit.UI
 
         protected void ExecuteCommand(View sender, string command, object userData)
         {
+            /*
             ItemListView listView = sender as ItemListView;
             if (listView != null)
                 listView.ExecuteCommand(command, userData);
+            */
         }
 
         protected virtual void GetViewCreated(View view, ViewGroup parent)
