@@ -14,6 +14,7 @@ namespace todo_list.Droid.UI.Fragments
     using Android.Views;
     using Android.Widget;
 
+    #pragma warning disable CS4014
     public class LoginFragment : Android.Support.V4.App.Fragment
     {
         #region Inner Classes
@@ -24,8 +25,13 @@ namespace todo_list.Droid.UI.Fragments
 
         #region Widgets
 
+        private EditText Username;
+        private EditText Password;
+
         private Button LoginButton;
         private Button RegisterButton;
+
+        private TextView Error;
 
         #endregion
 
@@ -55,11 +61,23 @@ namespace todo_list.Droid.UI.Fragments
             // prende xml e crea gerarchia dei controlli:
             View view = inflater.Inflate(Resource.Layout.FragmentLogin, container, false);
 
-            #endregion           
+            #endregion
+
+            ((Android.Support.V7.App.AppCompatActivity)this.Activity).SupportActionBar.Hide();
+
+            this.Username = view.FindViewById<EditText>(Resource.Id.UserText);
+            this.Password = view.FindViewById<EditText>(Resource.Id.PasswordText);
+
+            this.Error = view.FindViewById<TextView>(Resource.Id.ErrorLabel);
 
             this.LoginButton = view.FindViewById<Button>(Resource.Id.LoginButton);
 
             this.LoginButton.Click += LoginButton_Click;
+
+            this.RegisterButton = view.FindViewById<Button>(Resource.Id.RegisterButton);
+
+            this.RegisterButton.Click += RegisterButton_Click;
+
 
             return view;
         }
@@ -82,17 +100,45 @@ namespace todo_list.Droid.UI.Fragments
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            // autenticazione con servizio rest e se ho risposta positiva navigare sulla task list
+            // I do the Login call and then I exit this method, so I don't block the user interface
 
-            // qui vedi FragmentManager con nome corto ma preso dalla libreria support!
-            this.FragmentManager.BeginTransaction()
-                .AddToBackStack("before_TaskListFragment") // identificatore nel back stack
-                .Replace(Resource.Id.ContentLayout, new TaskListFragment(), "TaskListFragment")
-                .Commit();
-            
+            // when the Login call will return... then my correct code will be executed (user)=> or (error)=> ...
+
+            // VisualStudio asks if we want to "await"... but we don't want. So we ignore this warning.
+
+            AppController.Login(this.Username.Text, this.Password.Text,
+            (user) =>
+            {
+                this.Error.Visibility = ViewStates.Invisible;
+
+                // FragmentManager with short name, indeed it is provided by support library
+
+                this.FragmentManager.BeginTransaction()
+                    .AddToBackStack("before_TaskListFragment") // identificatore nel back stack
+                    .Replace(Resource.Id.ContentLayout, new TaskListFragment(), "TaskListFragment")
+                    .Commit();
+
+            },
+            (error) =>
+            {
+                this.Error.Text = error;
+                this.Error.Visibility = ViewStates.Visible;
+            },
+            (exception) =>
+            {
+                this.Error.Text = exception.Message;
+                this.Error.Visibility = ViewStates.Visible;
+            });
+
         }
 
-
+        private void RegisterButton_Click(object sender, EventArgs e)
+        {
+            this.FragmentManager.BeginTransaction()
+                .AddToBackStack("before_RegistrationFragment") // key in the backstack
+                .Replace(Resource.Id.ContentLayout, new RegistrationFragment(), "RegistrationFragment")
+                .Commit();
+        }
 
         #endregion
     }

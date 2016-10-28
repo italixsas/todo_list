@@ -36,6 +36,10 @@ namespace todo_list.Droid.UI.Activities
         #endregion
 
         #region Widgets
+
+        // Solo se usata con tema custom dove viene aggiunta manualmente
+        private Android.Support.V7.Widget.Toolbar Toolbar;
+
         #endregion
 
         #region Constructors
@@ -59,6 +63,9 @@ namespace todo_list.Droid.UI.Activities
             #region Desinger Stuff
 
             SetContentView(Resource.Layout.ActivityMain);
+
+            //this.Toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.Toolbar);
+            //SetSupportActionBar(this.Toolbar); // in realta' ci sta gia' arrivando dal tema
 
             #endregion
 

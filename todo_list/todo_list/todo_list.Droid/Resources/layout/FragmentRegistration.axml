@@ -23,4 +23,9 @@
         p1:id="@+id/RegisterButton"
         p1:layout_below="@+id/PasswordText"
         p1:layout_centerHorizontal="true" />
+    <EditText
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/ErrorLabel"
+        p1:layout_below="@+id/RegisterButton" />
 </RelativeLayout>

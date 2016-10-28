@@ -22,7 +22,7 @@ namespace todo_list.iOS
 		{
 			base.ViewWillAppear(animated);
 
-			this.NavigationController.NavigationBarHidden = true;
+            this.NavigationController.SetNavigationBarHidden(true, false);
 
 			this.LoginButton.TouchUpInside += LoginButton_TouchUpInside;
 
